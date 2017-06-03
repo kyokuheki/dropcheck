@@ -53,7 +53,11 @@ proc = subprocess.call( dns4 , shell=True)
 dns6 = "dig www.wide.ad.jp AAAA"
 #print("\n$"+dns6)
 proc = subprocess.call( dns6 , shell=True)
+trace4 = "traceroute -q1 -w1 -m30 8.8.8.8"
+proc = subprocess.call( trace4 , shell=True)
 trace4 = "traceroute -q1 -w1 -m30 8.8.8.8 | grep -e vrf-l3aggr.class1.mx240-1.fpbl.private.interop-tokyo.net  -e vrf-cgn.class0.mx240-1.fpbl.interop-tokyo.net -e vrf-videopacing.class0.mx240-1.fpbl.interop-tokyo.net"
 proc = subprocess.call( trace4 , shell=True)
+trace6 = "traceroute6 -q1 -w1 -m30 -I 2001:4860:4860::8888"
+proc = subprocess.call( trace6 , shell=True)
 trace6 = "traceroute6 -q1 -w1 -m30 -I 2001:4860:4860::8888 | grep -e vrf-l3aggr.class1 -e vrf-cgn.class0 -e vrf-videopacing.class0 -e vrf-sentinel.class0"
 proc = subprocess.call( trace6 , shell=True)
